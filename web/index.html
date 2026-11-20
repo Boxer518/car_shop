@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Автосалон: каталог, сделки и тест-драйвы.">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Автосалон">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <title>Автосалон</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    #splash {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin: 0;
+      background: #f4f7f8;
+      color: #1b3a4b;
+      font-family: sans-serif;
+    }
+    #splash h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 600;
+    }
+    #splash .spin {
+      width: 36px;
+      height: 36px;
+      border: 3px solid #d5dee3;
+      border-top-color: #1b3a4b;
+      border-radius: 50%;
+      animation: splash-spin 0.8s linear infinite;
+    }
+    @keyframes splash-spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div id="splash">
+    <h1>Автосалон</h1>
+    <div class="spin" role="status" aria-label="Загрузка"></div>
+  </div>
+  <script>
+    window.addEventListener('flutter-first-frame', function () {
+      var splash = document.getElementById('splash');
+      if (splash) splash.remove();
+    });
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
